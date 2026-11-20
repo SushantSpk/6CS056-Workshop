@@ -1,0 +1,20 @@
+warning: in the working copy of 'resources/views/course/create.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/course/detail.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/course/edit.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/course/list.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/student/create.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/student/detail.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/student/edit.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/student/list.blade.php', CRLF will be replaced by LF the next time Git touches it
+ app/Models/Course.php                    |  11 [32m+++[m[31m-[m
+ app/Models/Student.php                   |  15 [32m++++++[m
+ resources/views/course/create.blade.php  |  74 [32m++++[m[31m----------------------[m
+ resources/views/course/detail.blade.php  |  58 [32m++++++++++++[m[31m--------[m
+ resources/views/course/edit.blade.php    |  91 [32m++++[m[31m----------------------------[m
+ resources/views/course/list.blade.php    | 108 [32m+++++++++++++++++[m[31m---------------------[m
+ resources/views/student/create.blade.php |  72 [32m++++[m[31m---------------------[m
+ resources/views/student/detail.blade.php |  49 [32m+++++[m[31m------------[m
+ resources/views/student/edit.blade.php   |  98 [32m++++[m[31m------------------------------[m
+ resources/views/student/list.blade.php   |  56 [32m++++[m[31m----------------[m
+ routes/web.php                           | 245 [32m+++[m[31m----------------------------------------------------------------------------------[m
+ 11 files changed, 179 insertions(+), 698 deletions(-)

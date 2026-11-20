@@ -1,28 +1,13 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Students List</title>
-</head>
-<body>
+<x-layouts.app title="Students">
 
-    <h1>Students List</h1>
+    <h1>Students</h1>
 
-    <!-- Display success message after creating, editing or deleting -->
-    @if(session('success'))
-        <p style="color: green;">
-            {{ session('success') }}
-        </p>
-    @endif
+    <a href="{{ route('students.create') }}" class="btn">
+        Create Student
+    </a>
 
-    <!-- Link to create a new student -->
-    <a href="/students/create">Create Student</a>
-
-    <br><br>
-
-    <!-- Display all students in a table -->
-    <table border="1" cellpadding="10">
-
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -34,10 +19,7 @@
         </thead>
 
         <tbody>
-
-            <!-- Loop through all students -->
             @forelse($students as $student)
-
                 <tr>
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
@@ -45,41 +27,23 @@
                     <td>{{ $student->phone }}</td>
 
                     <td>
-
-                        <!-- View student details -->
-                        <a href="/students/{{ $student->id }}">
+                        <a href="{{ route('students.show', $student) }}">
                             View
                         </a>
 
-                        <!-- Edit student information -->
-                        <a href="/students/{{ $student->id }}/edit">
+                        <a href="{{ route('students.edit', $student) }}">
                             Edit
                         </a>
 
-                        <!-- Delete student -->
-                        <form action="/students/{{ $student->id }}"
-                              method="POST"
-                              style="display:inline;">
-
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="submit">Delete</button>
-
-                        </form>
-
+                        <x-delete-form :action="route('students.destroy', $student)" />
                     </td>
                 </tr>
-
-            <!-- Display message if no students exist -->
             @empty
                 <tr>
                     <td colspan="5">No students found.</td>
                 </tr>
             @endforelse
-
         </tbody>
     </table>
 
-</body>
-</html>
+</x-layouts.app>

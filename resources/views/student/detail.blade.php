@@ -1,55 +1,34 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Details</title>
-</head>
-<body>
+<x-layouts.app title="Student Details">
 
     <h1>Student Details</h1>
 
-    <!-- Display the selected student's information -->
-    <p>
-        <strong>ID:</strong>
-        {{ $student->id }}
-    </p>
+    <p><strong>ID:</strong> {{ $student->id }}</p>
 
-    <p>
-        <strong>Name:</strong>
-        {{ $student->name }}
-    </p>
+    <p><strong>Name:</strong> {{ $student->name }}</p>
 
-    <p>
-        <strong>Email:</strong>
-        {{ $student->email }}
-    </p>
+    <p><strong>Email:</strong> {{ $student->email }}</p>
 
-    <p>
-        <strong>Phone:</strong>
-        {{ $student->phone }}
-    </p>
+    <p><strong>Phone:</strong> {{ $student->phone }}</p>
 
-    <p>
-        <strong>Address:</strong>
-        {{ $student->address }}
-    </p>
+    <p><strong>Address:</strong> {{ $student->address }}</p>
 
     <p>
         <strong>Date of Birth:</strong>
-        {{ $student->date_of_birth }}
+        {{ $student->date_of_birth?->format('d M Y') }}
     </p>
 
-    <!-- Link to edit this student -->
-    <a href="/students/{{ $student->id }}/edit">
+    <p>
+        <strong>Age:</strong>
+        {{ $student->age ?? 'Not available' }}
+    </p>
+
+    <a href="{{ route('students.edit', $student) }}" class="btn">
         Edit Student
     </a>
 
-    <br><br>
-
-    <!-- Return to the students list -->
-    <a href="/students">
+    <a href="{{ route('students.index') }}">
         Back to Students
     </a>
 
-</body>
-</html>
+</x-layouts.app>

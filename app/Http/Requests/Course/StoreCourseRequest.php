@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Requests\Course;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+class StoreCourseRequest extends FormRequest
+{
+    // Allow everyone to send this request
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    // Validation rules for creating a course
+    public function rules(): array
+    {
+        return [
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'duration' => 'required|integer|min:1',
+            'fee' => 'required|numeric|min:0',
+            'difficulty' => [
+                'required',
+                Rule::in(['Easy', 'Medium', 'Hard']),
+            ],
+            'is_active' => 'boolean',
+        ];
+    }
+}
